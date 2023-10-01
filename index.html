@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="input" onkeyup="reverseWords()" placeholder="Enter a sentence"/>
+    <p id="output"></p>   
+     <script>
+        function reverseWords() {
+            const inputElement = document.getElementById("input");
+            const outputElement = document.getElementById("output");
+
+            const sentence = inputElement.value;
+            
+            // Check if the input is not empty
+            if (sentence.trim() === "") {
+                outputElement.innerText = ""; // Clear the output if the input is empty
+                return;
+            }
+
+            // Split the sentence into words
+            const words = sentence.split(' ');
+
+            // Reverse each word and store them in a new array
+            const reversedWords = words.map(word => {
+                return word.split('').reverse().join('');
+            });
+
+            // Join the reversed words back into a sentence
+            const reversedSentence = reversedWords.join(' ');
+
+            outputElement.innerText = reversedSentence;
+        }
+    </script>
+</body>
+</html>
